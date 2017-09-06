@@ -12,11 +12,12 @@
 	//Add task to database
 	if(isset($_POST['submit'])){
 		$task_input = $_POST['task_input'];
+		if(!empty($task_input)){
 		$sql = "INSERT INTO tasks (task) VALUES ('$task_input')";
 		if($conn->query($sql) === TRUE){
 			echo "Task added successfully";}
 		else{
-			echo "Error: Unable to add task. " . $sql . "<br>" . $conn->error;}
+			echo "Error: Unable to add task. " . $sql . "<br>" . $conn->error;}}
 		header('location: index1.php');}
 
 	//Display tasks on webpage
